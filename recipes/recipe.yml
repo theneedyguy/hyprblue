@@ -6,12 +6,15 @@ name: hyprblue
 description: Highly opnionated hyprland custom image
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/sericea-main
+base-image: ghcr.io/ublue-os/base-main:43
 image-version: 43 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  # Set sddm stuff
+  - from-file: common/sddm-modules.yml
+
   - type: files
     files:
       - source: system
@@ -33,14 +36,37 @@ modules:
         - scottames/ghostty
     install:
       packages:
+        # Hyprland related packages
+        - hyprland
+        - xdg-desktop-portal-hyprland
+        - hyprpaper
+        - hyprlock
+        - hypridle
+        - hyprland-qtutils
         - bc
+        - fzf
         - curl
         - findutils
         - gawk
         - git
+        # file manager
+        - thunar
+        - thunar-archive-plugin 
+        - thunar-volman
+        - xarchiver
+        - imv
+        - p7zip
+        - gvfs-mtp
+        - gvfs-gphoto2
+        - gvfs-smb
+        - gvfs-nfs
+        - gvfs-fuse
+        - gvfs-archive
+        - android-tools
         - grim
         - gvfs
         - gvfs-mtp
+
         - hyprpolkitagent
         - ImageMagick
         - inxi
@@ -51,9 +77,14 @@ modules:
         - network-manager-applet
         - openssl
         - pamixer
+        # sound
+        - wireplumber
+        - pipewire
+        - pulseaudio-utils
         - pavucontrol
         - pipewire-alsa
         - pipewire-utils
+
         - playerctl
         - python3-requests
         - python3-pip
@@ -61,6 +92,8 @@ modules:
         - qt5ct
         - qt6ct
         - qt6-qtsvg
+        - qt5-qtwayland
+        - qt6-qtwayland
         - rofi
         - slurp
         - swappy
@@ -69,6 +102,8 @@ modules:
         - wget2
         - wl-clipboard
         - wlogout
+        - wlr-randr
+        - wlsunset
         - xdg-user-dirs
         - xdg-utils
         - yad
@@ -90,12 +125,52 @@ modules:
         - pamixer
         - swww
         - wallust 
+        - ddcutil
+        - polkit
+        - xfce-polkit 
+        - fprintd-pam
+        - dbus-tools
+        - dbus-daemon
+        - distrobox
+        - alsa-firmware
+
+        # networking
+        - NetworkManager-openvpn
+        - NetworkManager-openvpn-gnome
+        - NetworkManager-openconnect
+        - NetworkManager-openconnect-gnome
+        - bluez
+        - bluez-tools
+        - blueman
+        - firewall-config
+
+        # theme and GUI
+        - fontawesome-fonts-all
+        - gnome-themes-extra
+        - gnome-icon-theme
+        - paper-icon-theme
+        - breeze-icon-theme 
+        - papirus-icon-theme
     remove:
       packages:
         - aylurs-gtk-shell
         - dunst
         - mako
         - rofi
+
+
+  - type: files
+    files:
+      - source: system/usr
+        destination: /usr
+
+      - source: system/etc
+        destination: /etc
+
+  - type: files
+    files:
+      - source: system/hyprland
+        destination: /
 
   - type: default-flatpaks
     configurations:
