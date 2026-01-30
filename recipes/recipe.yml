@@ -15,11 +15,6 @@ modules:
   # Set sddm stuff
   - from-file: common/sddm-modules.yml
 
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
   - type: dnf
     repos:
       copr:
@@ -76,7 +71,8 @@ modules:
         - nano
         - network-manager-applet
         - openssl
-        - pamixer
+
+
         # sound
         - wireplumber
         - pipewire
@@ -84,8 +80,9 @@ modules:
         - pavucontrol
         - pipewire-alsa
         - pipewire-utils
-
+        - pamixer
         - playerctl
+
         - python3-requests
         - python3-pip
         - python3-pyquery
