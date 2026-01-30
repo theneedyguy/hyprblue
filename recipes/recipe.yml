@@ -19,6 +19,7 @@ modules:
     repos:
       copr:
         - sdegler/hyprland
+        - elxreno/preload
         - che/nerd-fonts 
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
@@ -152,6 +153,11 @@ modules:
         - breeze-icon-theme 
         - papirus-icon-theme
         - nerd-fonts
+
+        # custom packages
+        - keepassxc # password manager
+        - syncthing # file syncing
+        - preload # depends on copr for preload
     remove:
       packages:
         - aylurs-gtk-shell
