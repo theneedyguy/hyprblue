@@ -19,6 +19,7 @@ modules:
     repos:
       copr:
         - sdegler/hyprland
+        - che/nerd-fonts 
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
         - tofik/nwg-shell
@@ -148,6 +149,7 @@ modules:
         - paper-icon-theme
         - breeze-icon-theme 
         - papirus-icon-theme
+        - nerd-fonts
     remove:
       packages:
         - aylurs-gtk-shell

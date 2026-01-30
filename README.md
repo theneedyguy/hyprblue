@@ -41,3 +41,7 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/theneedyguy/hyprblue
 ```
+
+## Get JaKooLit Dots
+
+curl -s  "https://api.github.com/repos/JaKooLit/Hyprland-Dots/tags" | jq -r '.[0]'.tarball_url | wget -O dots.tgz
