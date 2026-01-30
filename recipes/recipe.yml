@@ -30,6 +30,7 @@ modules:
         - wezfurlong/wezterm-nightly
         - scottames/ghostty
     install:
+      skip-unavailable: true
       packages:
         # Hyprland related packages
         - hyprland
