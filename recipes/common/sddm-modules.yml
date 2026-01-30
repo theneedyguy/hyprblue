@@ -18,4 +18,4 @@ modules:
     - type: systemd
       system:
         enabled:
-          - sddm.service
+          - sddm-boot.service
