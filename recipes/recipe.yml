@@ -173,6 +173,12 @@ modules:
       - source: system/hyprland
         destination: /
 
+
+  - type: script
+    scripts:
+      - sethyprlandwaybarmodules.sh
+
+
   - type: default-flatpaks
     configurations:
       - notify: true # Send notification after install/uninstall is finished (true/false)
