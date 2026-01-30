@@ -155,6 +155,10 @@ modules:
         - mako
         - rofi
 
+  - type: script
+    scripts:
+      - installandroidudev.sh
+      - ensureautoupdates.sh
 
   - type: files
     files:
