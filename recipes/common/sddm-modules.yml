@@ -9,6 +9,7 @@ modules:
           - qt5-qtquickcontrols2
           - qt5-qtsvg
           - kwallet
+          - polkit-kde
           - pam-kwallet
 
     - type: script

@@ -44,4 +44,4 @@ cosign verify --key cosign.pub ghcr.io/theneedyguy/hyprblue
 
 ## Get JaKooLit Dots
 
-curl -s  "https://api.github.com/repos/JaKooLit/Hyprland-Dots/tags" | jq -r '.[0]'.tarball_url | wget -O dots.tgz
+curl -s  "https://api.github.com/repos/JaKooLit/Hyprland-Dots/tags" | jq -r '.[0]'.tarball_url | xargs wget -O dots.tgz
