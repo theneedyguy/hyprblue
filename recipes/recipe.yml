@@ -19,18 +19,18 @@ modules:
     repos:
       copr:
         - sdegler/hyprland
-        - elxreno/preload
+        #- elxreno/preload
         - che/nerd-fonts 
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
         - tofik/nwg-shell
-        - alternateved/eza
-        - lihaohong/yazi
-        - opuk/bottom
-        - atim/lazygit
-        - atim/lazydocker
-        - wezfurlong/wezterm-nightly
-        - scottames/ghostty
+        #- alternateved/eza
+        #- lihaohong/yazi
+        #- opuk/bottom
+        #- atim/lazygit
+        #- atim/lazydocker
+        #- wezfurlong/wezterm-nightly
+        #- scottames/ghostty
     install:
       skip-unavailable: true
       packages:
@@ -157,7 +157,7 @@ modules:
         # custom packages
         - keepassxc # password manager
         - syncthing # file syncing
-        - preload # depends on copr for preload
+        #- preload # depends on copr for preload
     remove:
       packages:
         - aylurs-gtk-shell
