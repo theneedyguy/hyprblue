@@ -152,7 +152,9 @@ modules:
         - paper-icon-theme
         - breeze-icon-theme 
         - papirus-icon-theme
-        - nerd-fonts
+        - nerd-fonts 
+        # GTK stuff for microsoft-identity-broker =>3
+        - webkitgtk6.0-devel
 
         # custom packages
         - keepassxc # password manager
