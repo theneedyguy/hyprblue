@@ -1,0 +1,204 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: hyprblue
+# description will be included in the image's metadata
+description: Highly opnionated hyprland custom image
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/base-main
+image-version: 44 # latest is also supported if you want new updates ASAP
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  # Set sddm stuff
+  - from-file: common/sddm-modules.yml
+
+  - type: dnf
+    repos:
+      copr:
+        - sdegler/hyprland
+        #- elxreno/preload
+        - che/nerd-fonts 
+        - erikreider/SwayNotificationCenter
+        - errornointernet/packages
+        - tofik/nwg-shell
+        #- alternateved/eza
+        #- lihaohong/yazi
+        #- opuk/bottom
+        #- atim/lazygit
+        #- atim/lazydocker
+        #- wezfurlong/wezterm-nightly
+        #- scottames/ghostty
+    install:
+      skip-unavailable: true
+      packages:
+        # KDE Connect
+        - kde-connect
+        # Hyprland related packages
+        - hyprland
+        - xdg-desktop-portal-hyprland
+        - hyprpaper
+        - hyprlock
+        - hypridle
+        - bc
+        - fzf
+        - curl
+        - findutils
+        - gawk
+        - git
+        # file manager
+        - thunar
+        - thunar-archive-plugin 
+        - thunar-volman
+        - xarchiver
+        - imv
+        - p7zip
+        - gvfs-mtp
+        - gvfs-gphoto2
+        - gvfs-smb
+        - gvfs-nfs
+        - gvfs-fuse
+        - gvfs-archive
+        - android-tools
+        - grim
+        - gvfs
+        - gvfs-mtp
+
+        - hyprpolkitagent
+        - ImageMagick
+        - inxi
+        - jq
+        - kitty
+        - kvantum
+        - nano
+        - network-manager-applet
+        - openssl
+
+
+        # sound
+        - wireplumber
+        - pipewire
+        - pulseaudio-utils
+        - pavucontrol
+        - pipewire-alsa
+        - pipewire-utils
+        - pamixer
+        - playerctl
+
+        - python3-requests
+        - python3-pip
+        - python3-pyquery
+        - qt5ct
+        - qt6ct
+        - qt6-qtsvg
+        - qt5-qtwayland
+        - qt6-qtwayland
+        - rofi
+        - slurp
+        - swappy
+        - unzip
+        - waybar
+        - wget2
+        - wl-clipboard
+        - wlogout
+        - wlr-randr
+        - wlsunset
+        - xdg-user-dirs
+        - xdg-utils
+        - yad
+        - brightnessctl
+        - btop
+        - cava
+        - loupe
+        - fastfetch
+        - gnome-system-monitor
+        - mousepad
+        - mpv
+        - mpv-mpris
+        - nvtop
+        - qalculate-gtk
+        - nwg-displays
+        - cliphist
+        - nwg-look
+        - SwayNotificationCenter
+        - pamixer
+        - swww
+        - wallust 
+        - ddcutil
+        - polkit
+        - xfce-polkit 
+        - fprintd-pam
+        - dbus-tools
+        - dbus-daemon
+        - distrobox
+        - alsa-firmware
+
+        # networking
+        - NetworkManager-openvpn
+        - NetworkManager-openvpn-gnome
+        - NetworkManager-openconnect
+        - NetworkManager-openconnect-gnome
+        - bluez
+        - bluez-tools
+        - blueman
+        - firewall-config
+
+        # theme and GUI
+        - fontawesome-fonts-all
+        - gnome-themes-extra
+        - gnome-icon-theme
+        - paper-icon-theme
+        - breeze-icon-theme 
+        - papirus-icon-theme
+        - nerd-fonts 
+        # GTK stuff for microsoft-identity-broker =>3
+        - webkitgtk6.0-devel
+
+        # custom packages
+        - keepassxc # password manager
+        - syncthing # file syncing
+        #- preload # depends on copr for preload
+    remove:
+      packages:
+        - aylurs-gtk-shell
+        - dunst
+        - mako
+        - rofi
+
+  - type: script
+    scripts:
+      - installandroidudev.sh
+      - ensureautoupdates.sh
+
+  - type: files
+    files:
+      - source: system/usr
+        destination: /usr
+
+      - source: system/etc
+        destination: /etc
+
+  - type: files
+    files:
+      - source: system/hyprland
+        destination: /
+
+
+  - type: script
+    scripts:
+      - sethyprlandwaybarmodules.sh
+
+
+  - type: default-flatpaks
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: system
+        # If no repo information is specified, Flathub will be used by default
+        install: []
+          # - org.mozilla.firefox
+          # - org.gnome.Loupe
+      - scope: user # Also add Flathub user repo, but no user packages
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
