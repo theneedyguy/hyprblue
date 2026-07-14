@@ -24,7 +24,6 @@ modules:
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
         - tofik/nwg-shell
-        - mlampe/webkit2gtk3
         #- alternateved/eza
         #- lihaohong/yazi
         #- opuk/bottom
