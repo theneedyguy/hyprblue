@@ -24,6 +24,7 @@ modules:
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
         - tofik/nwg-shell
+        - mlampe/webkit2gtk3
         #- alternateved/eza
         #- lihaohong/yazi
         #- opuk/bottom
@@ -34,6 +35,7 @@ modules:
     install:
       skip-unavailable: true
       packages:
+        - webkit2gtk3 # Dependency for icaclient
         - https://s3.0x01.host/public/ICAClient-rhel-gcc-8-26.04.0.105-0.x86_64.rpm
         # KDE Connect
         - kde-connect
