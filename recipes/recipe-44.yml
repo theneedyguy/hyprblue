@@ -134,6 +134,7 @@ modules:
         - dbus-daemon
         - distrobox
         - alsa-firmware
+        - uv # Python package manager
 
         # networking
         - NetworkManager-openvpn
