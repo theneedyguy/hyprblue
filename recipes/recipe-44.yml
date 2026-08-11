@@ -161,6 +161,8 @@ modules:
         - keepassxc # password manager
         - syncthing # file syncing
         #- preload # depends on copr for preload
+        # add f5 vpn
+        - https://s3.0x01.host/public/linux_f5vpn.x86_64.rpm
     remove:
       packages:
         - aylurs-gtk-shell
