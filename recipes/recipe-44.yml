@@ -38,6 +38,7 @@ modules:
         - kde-connect
         # Hyprland related packages
         - hyprland
+        - glslang # used for hyprpm
         - xdg-desktop-portal-hyprland
         - hyprpaper
         - hyprlock
