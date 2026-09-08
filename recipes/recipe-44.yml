@@ -24,6 +24,7 @@ modules:
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
         - tofik/nwg-shell
+        - ilyaz/LACT
         #- alternateved/eza
         #- lihaohong/yazi
         #- opuk/bottom
@@ -164,12 +165,20 @@ modules:
         #- preload # depends on copr for preload
         # add f5 vpn
         - https://s3.0x01.host/public/linux_f5vpn.x86_64.rpm
+        # add GPU control via LACT
+        - lact
     remove:
       packages:
         - aylurs-gtk-shell
         - dunst
         - mako
         - rofi
+
+  - type: systemd
+    system:
+      enabled:
+        - lactd.service
+
 
   - type: script
     scripts:
