@@ -165,6 +165,7 @@ modules:
         #- preload # depends on copr for preload
         # add f5 vpn
         - https://s3.0x01.host/public/linux_f5vpn.x86_64.rpm
+        - https://packages.microsoft.com/fedora/44/prod/Packages/m/mdatp-101.26091.0003-1.x86_64.rpm
         # add GPU control via LACT
         - lact
     remove:
