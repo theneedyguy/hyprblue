@@ -17,6 +17,8 @@ modules:
 
   - type: dnf
     repos:
+      files:
+       - wayscriber.repo
       copr:
         - sdegler/hyprland
         #- elxreno/preload
@@ -167,6 +169,9 @@ modules:
         - https://s3.0x01.host/public/linux_f5vpn.x86_64.rpm
         # add GPU control via LACT
         - lact
+        # add wayscriber
+        - wayscriber
+        - wayscriber-configurator
     remove:
       packages:
         - aylurs-gtk-shell
