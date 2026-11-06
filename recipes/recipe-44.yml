@@ -172,6 +172,8 @@ modules:
         # add wayscriber
         - wayscriber
         - wayscriber-configurator
+        # Keyring pam autounlock after login
+        - gnome-keyring-pam
     remove:
       packages:
         - aylurs-gtk-shell
