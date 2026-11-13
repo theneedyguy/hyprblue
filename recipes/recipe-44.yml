@@ -19,6 +19,7 @@ modules:
     repos:
       files:
        - wayscriber.repo
+       - terra.repo
       copr:
         - sdegler/hyprland
         #- elxreno/preload
@@ -174,6 +175,10 @@ modules:
         - wayscriber-configurator
         # Keyring pam autounlock after login
         - gnome-keyring-pam
+        # terra
+        - terra-release
+        - terra-gpg-keys
+        - lan-mouse
     remove:
       packages:
         - aylurs-gtk-shell
