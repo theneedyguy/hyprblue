@@ -185,12 +185,13 @@ modules:
 
 
   - type: dnf
-    no-gpgchecks: true
+    
     repos:
       files:
        - terra.repo
     install:
       skip-unavailable: true
+      no-gpgchecks: true
       packages:
         # terra
         - terra-release
