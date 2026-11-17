@@ -25,6 +25,7 @@ modules:
         - che/nerd-fonts 
         - erikreider/SwayNotificationCenter
         - errornointernet/packages
+        - errornointernet/quickshell
         - tofik/nwg-shell
         - ilyaz/LACT
         #- alternateved/eza
@@ -174,7 +175,8 @@ modules:
         - wayscriber-configurator
         # Keyring pam autounlock after login
         - gnome-keyring-pam
-
+        # Quickshell
+        - quickshell
     remove:
       packages:
         - aylurs-gtk-shell
